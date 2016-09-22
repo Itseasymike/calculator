@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <style type="text/css">
+	 body {
+	 	background: url("calc.jpg");
+	 	background-size: cover;
+	 }
+		form {
+			opacity: 0.9;
+			width: 50%;
+			margin: 0 auto;
+		}
+		table {
+			margin: 0 auto;
+			width: 50%;
+			background: rgba(0,0,0,0.8); 
+			text-align: center;
+			border: 4px solid orange;
+			border-radius: 5px;
+			padding: 10px;
+		}
+		td:hover {
+			background-color: rgba(255,0,0,0.5);
+		}
+		td {
+			position: justify;
+			border: 1px solid rgba(0,0,0,0.5);
+			padding: 10px; 
+		}
+		h1 {
+			text-align: center;
+			border: 3px solid orange;
+			border-radius: 5px;
+			background: rgba(0,0,0,0.8);  
+			color: orange; 
+			font-weight: bold;
+		}
+		.smh {
+			opacity: 0;
+		}
+		.smh:hover {
+			opacity: 1;
+			color: red;
+		}
+		.test {
+			display: inline-block;
+			font-size: 28px;
+			width: 70px;
+		}
+		.test:hover {
+			color: blue;
+			font-weight: bold;
+		}
+	
+	</style> 
+	<title>Calculator</title>
+</head>
+<body>
+	<form name="Calc">
+		<table>
+			<tr>
+				<td>
+					<input  id ="inputs" type="text" name="input" size="20" style="background: #e5ecff; color: red; font-weight: bold; font-size: 20px;">
+
+
+				<tr>
+				<td>
+				<input class ="test" type="button" name="one" value="Burger" onclick="Calc.input.value += '840'">
+				<input class ="test" type="button" name="two" value="Fries" onclick="Calc.input.value += '1120'">
+				<input class ="test" type="button" name="three" value="Wings" onclick="Calc.input.value += '700'">
+				<input class ="test" type="button" name="clear" value="C" onclick="Calc.input.value = ''">
+				</td>
+				</tr>
+
+						<h1> Calculate your daily calorie intake!</h1>
+						<h1 class="smh"> ... or DIE!!!</h1>
+
+				<tr>
+				<td>
+				<input class ="test" type="button" name="four" value="Pizza" onclick="Calc.input.value += '450'">
+				<input class ="test" type="button" name="five" value="Tacos" onclick="Calc.input.value += '350'">
+				<input class ="test" type="button" name="six" value="Burritos" onclick="Calc.input.value += '820'">
+				<input class ="test" type="button" name="plus" value="+" onclick="Calc.input.value += '+'">
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input class ="test" type="button" name="7" value="Icecream" onclick="Calc.input.value += '640'">
+				<input class ="test" type="button" name="8" value="Twinkies" onclick="Calc.input.value += '300'">
+				<input class ="test" type="button" name="9" value="Cake" onclick="Calc.input.value += '450'">
+				<input class ="test" type="button" name="minus" value="-" onclick="Calc.input.value += '-'">
+				</td>
+				</tr>
+
+				<tr>
+				<td>
+				<input class ="test" type="button" name="0" value="Salad(lol)" onclick="Calc.input.value += '9000'">
+				<input class ="test" type="button" name="equal" value="=" onclick="Calc.input.value = eval(Calc.input.value)">
+				<input class ="test" type="button" name="divide" value="/" onclick="Calc.input.value += '/'">
+				<input class ="test" type="button" name="multiply" value="*" onclick="Calc.input.value += '*'">
+				</td>
+				</tr>
+
+				<tr>
+					<td>
+						<input class ="test" type="button" name="avg" value="Average" onclick="getAverage()">
+					</td>
+				</tr>
+		</table>
+	</form>
+	<footer style="background-color: rgba(255, 255, 255, 0.1); display: inline-block; border-radius: 10%; padding: 5px;">
+		<p>
+		<h5 style="color: red; opacity: 0.5;">DISCLAIMER:</h5>
+		<h6 style="color: red; opacity: 0.5;">Calculations may or may not be accurate</h6>
+		</p>
+	</footer>
+</body>
+
+<script type="text/javascript">
+
+/*  	array = [450,350,820,640,300,450,9000];
+			var sum = 450 + 350 + 820 + 640 + 300 + 450 + 9000;
+			var avg = sum / array.length;
+			document.write(avg); 		*/
+
+
+	function getAverage() {
+		var a = document.getElementById('inputs').value;
+		var nums = a.split("+");
+		var total = 0;
+		for (var i = 0; i < nums.length; i ++) {
+			total += Number(nums[i]);
+		}
+		var average = total / nums.length;
+		document.getElementById('inputs').value = average;
+	}
+</script>
+</html>
